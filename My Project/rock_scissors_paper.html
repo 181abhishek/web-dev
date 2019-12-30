@@ -1,0 +1,68 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+    <style>
+    html,body{
+        height: 100%;
+    }
+    .square_div{
+        background-color: #a3adad;
+    }
+    .grid{
+        float: left;
+       
+    }
+    </style>
+    <body >
+        <div class="container">
+            <div class="row h-100 d-flex justify-content-center flex-column align-items-center">
+                <div class="border border-primary square_div" id="" style="height: 400px;width: 402px;">
+                    
+                </div>
+                <div class="d-flex justify-content-between w-50">
+                <button class="btn mt-5 btn-primary rndm" type="submit" onclick="changeColor()" value="rndm">Random Color</button>
+                <button class="btn mt-5 btn-primary blk" type="submit" onclick="changeColor()" value="bkl">Black</button>
+            </div>
+            </div>
+           
+        </div>
+        
+        <script>
+       
+     //  document.getElementById("contener").addEventListener('click', make_sqr_div);
+     let choose_color='black'
+        var sqr_side=20;
+       make_sqr_div(sqr_side)
+         function make_sqr_div(sqr_side){
+            console.log(sqr_side)
+            var container = document.querySelector('.square_div');
+            var totalsqr=160000/parseInt(sqr_side*sqr_side);
+            console.log(totalsqr)
+            for( k=0;k<totalsqr;k++)
+            {
+                var grid_div = document.createElement('div');
+                grid_div.style.width=sqr_side+'px';
+                grid_div.style.height=sqr_side+'px';
+                grid_div.classList.add('grid');
+                grid_div.addEventListener('mouseover', changeColor);
+                container.appendChild(grid_div);
+            }
+        }
+        function changeColor(button){
+           
+            
+                this.style.backgroundColor = chooseColor();
+          
+           
+               
+           
+        }
+         function chooseColor(){
+                     return   'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+            }
+     
+        </script>
+    </body>
+</html>
